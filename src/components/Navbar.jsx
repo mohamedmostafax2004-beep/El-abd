@@ -17,6 +17,12 @@ export default function Navbar({ cartCount, toggleCart, toggleTheme, theme }) {
             <span className="brand-text text-accent">مفروشات</span> العبد
           </div>
           
+          <ul className="navbar-links desktop-only">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#products">منتجاتنا</a></li>
+            <li><a href="#about">من نحن</a></li>
+          </ul>
+          
           <div className="navbar-actions">
             <button className="btn-icon" onClick={toggleTheme} aria-label="Toggle Theme">
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
@@ -25,7 +31,7 @@ export default function Navbar({ cartCount, toggleCart, toggleTheme, theme }) {
               <ShoppingCart size={20} />
               {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </button>
-            <button className="btn-icon" onClick={toggleMenu} aria-label="Menu">
+            <button className="btn-icon mobile-only" onClick={toggleMenu} aria-label="Menu">
               <Menu size={24} />
             </button>
           </div>
