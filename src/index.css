@@ -154,3 +154,16 @@ input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--accent-color);
 }
+
+/* App Container */
+#root,
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+main {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
