@@ -17,9 +17,31 @@ import img16 from '../assets/products/6016875455572986101_121.jpg';
 import img17 from '../assets/products/6016875455572986209_121.jpg';
 import img18 from '../assets/products/6023675393824901779_121.jpg';
 
+// استيراد صور طقم ملايات رافيتا مليكة الجديد
+import ravitaBlueGrey from '../assets/products/ravita_blue_grey.jpg';
+import ravitaMintGreen from '../assets/products/ravita_mint_green.jpg';
+import ravitaPink from '../assets/products/ravita_pink.jpg';
+import ravitaBlue from '../assets/products/ravita_blue.jpg';
+import ravitaBeige from '../assets/products/ravita_beige.jpg';
+
 export const products = [
   // أطقم سرير (Bed Sets)
-  { id: 1, name: 'طقم سرير قطن مصري 100%', price: 1500, category: 'أطقم سرير', image: img1, description: 'طقم سرير فاخر من القطن المصري الخالص لراحة تدوم.' },
+  { 
+    id: 1, 
+    name: 'طقم ملايات رافيتا مليكة فاخر 4 قطع', 
+    price: 1850, 
+    category: 'أطقم سرير', 
+    image: ravitaBlueGrey, 
+    images: [ravitaBlueGrey, ravitaMintGreen, ravitaPink, ravitaBlue, ravitaBeige],
+    colors: [
+      { name: 'رمادي مزرق', hex: '#8ea2b0', image: ravitaBlueGrey },
+      { name: 'أخضر نعناعي', hex: '#8fae9b', image: ravitaMintGreen },
+      { name: 'وردي مغبر', hex: '#c5a3aa', image: ravitaPink },
+      { name: 'أزرق متوسط', hex: '#5f7f9c', image: ravitaBlue },
+      { name: 'بيج خريفي', hex: '#cbb6a3', image: ravitaBeige }
+    ],
+    description: 'طقم ملايات رافيتا مليكة 4 قطع الراقي؛ يجمع بين النعومة الفائقة بفضل النسيج القطني عالي الجودة والتطريز اليدوي الفاخر بنقوشات الورد المميزة. متوفر في تشكيلة من 5 ألوان جذابة تضفي رقياً ودفئاً على غرف النوم.' 
+  },
   { id: 2, name: 'طقم سرير مطرز كلاسيك', price: 2200, category: 'أطقم سرير', image: img2, description: 'مفرش سرير مطرز بأناقة للمناسبات وغرف العرسان.' },
   { id: 3, name: 'طقم ملايات سادة عصرية', price: 850, category: 'أطقم سرير', image: img3, description: 'ألوان سادة وهادئة تناسب جميع الديكورات العصرية.' },
   { id: 4, name: 'طقم سرير فندقي أبيض', price: 1800, category: 'أطقم سرير', image: img4, description: 'جودة الفنادق العالمية في منزلك بنعومة فائقة.' },

@@ -4,12 +4,14 @@ import Hero from './components/Hero';
 import ProductsGallery from './components/ProductsGallery';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
+import ProductDetailsModal from './components/ProductDetailsModal';
 import './index.css';
 
 function App() {
   const [theme, setTheme] = useState('light');
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Initialize theme from system preference or local storage
   useEffect(() => {
@@ -21,6 +23,32 @@ function App() {
       setTheme('dark');
       document.documentElement.setAttribute('data-theme', 'dark');
     }
+  }, []);
+
+  // تأثير مراقبة التمرير العام (Intersection Observer) لظهور العناصر بنعومة بالغة عند التمرير
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -80px 0px',
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // نراقب العناصر بداخل الهيرو، الفوتر، وجسم الصفحة الرئيسي
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      revealElements.forEach((el) => observer.unobserve(el));
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -87,10 +115,19 @@ function App() {
 
       <main>
         <Hero />
-        <ProductsGallery addToCart={addToCart} />
+        <ProductsGallery addToCart={addToCart} onOpenDetails={setSelectedProduct} />
       </main>
 
       <Footer />
+
+      {/* النافذة التفاعلية لمعاينة التفاصيل والألوان في جذر الصفحة لتجنب مشاكل الـ Transform */}
+      {selectedProduct && (
+        <ProductDetailsModal 
+          product={selectedProduct} 
+          onClose={() => setSelectedProduct(null)} 
+          addToCart={addToCart} 
+        />
+      )}
     </div>
   );
 }

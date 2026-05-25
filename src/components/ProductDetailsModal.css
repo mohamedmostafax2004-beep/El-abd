@@ -1,0 +1,396 @@
+/* Product Details Modal Styles */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  animation: fadeInBackdrop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+[data-theme='dark'] .modal-backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.modal-container {
+  width: 100%;
+  max-width: 950px;
+  max-height: 90vh;
+  border-radius: 24px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  animation: scaleUpModal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Close Button */
+.modal-close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: var(--text-primary);
+  color: var(--bg-secondary);
+  transform: rotate(90deg);
+}
+
+/* Modal Content Grid */
+.modal-content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 850px) {
+  .modal-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-container {
+    max-height: 95vh;
+  }
+}
+
+/* Left Section: Gallery */
+.modal-gallery-section {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .modal-gallery-section {
+  background: rgba(0, 0, 0, 0.1);
+  border-left-color: var(--border-color);
+}
+
+@media (max-width: 850px) {
+  .modal-gallery-section {
+    padding: 2rem 1.5rem 1rem;
+    border-left: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+.main-image-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  background: var(--bg-secondary);
+}
+
+.modal-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+/* Nav Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .nav-arrow {
+  background: rgba(30, 30, 30, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f8f9fa;
+}
+
+.nav-arrow:hover {
+  background: var(--accent-color);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+[data-theme='dark'] .nav-arrow:hover {
+  color: #121212;
+}
+
+.nav-arrow.prev {
+  left: 1rem;
+}
+
+.nav-arrow.next {
+  right: 1rem;
+}
+
+/* Thumbnails */
+.thumbnail-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+  width: 100%;
+  overflow-x: auto;
+  padding: 4px;
+}
+
+.thumb-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.thumb-wrapper:hover {
+  transform: translateY(-2px);
+}
+
+.thumb-wrapper.active {
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.thumb-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right Section: Details */
+.modal-details-section {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right; /* RTL friendly */
+}
+
+@media (max-width: 850px) {
+  .modal-details-section {
+    padding: 1.5rem 1.5rem 2.5rem;
+  }
+}
+
+.modal-product-category {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.modal-product-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.modal-product-price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.modal-product-price-currency {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.modal-product-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* Color Swatches Option */
+.options-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.option-group-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-swatch-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex-direction: row-reverse; /* RTL support */
+}
+
+.color-swatch-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.color-swatch-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.color-swatch-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-swatch-wrapper.active .color-swatch-btn {
+  border-color: var(--accent-color);
+  transform: scale(1.15);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+.color-swatch-check {
+  color: #fff;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+}
+
+.color-swatch-name {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.color-swatch-wrapper.active .color-swatch-name {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* Modal Actions */
+.modal-actions-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.modal-add-to-cart-btn {
+  flex-grow: 1;
+  height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='dark'] .modal-add-to-cart-btn {
+  color: #121212;
+}
+
+.modal-add-to-cart-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.modal-add-to-cart-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.modal-add-to-cart-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.added-tick {
+  animation: tickPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Keyframes */
+@keyframes fadeInBackdrop {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUpModal {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes tickPop {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

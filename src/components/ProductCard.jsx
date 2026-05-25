@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { ShoppingBag, Loader } from 'lucide-react';
 import './ProductCard.css';
 
-export default function ProductCard({ product, addToCart }) {
+export default function ProductCard({ product, addToCart, onOpenDetails }) {
   const [isAdding, setIsAdding] = useState(false);
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (e, product) => {
+    e.stopPropagation(); // منع فتح نافذة التفاصيل عند الضغط على زر الشراء
     setIsAdding(true);
     addToCart(product);
     setTimeout(() => setIsAdding(false), 1500);
   };
 
   return (
-    <div className="product-card glass">
+    <div className="product-card glass clickable-card" onClick={() => onOpenDetails && onOpenDetails(product)}>
       <div className="product-image-container">
         <img src={product.image} alt={product.name} className="product-image" loading="lazy" />
         <div className="product-category">{product.category}</div>
@@ -24,7 +25,7 @@ export default function ProductCard({ product, addToCart }) {
           <span className="product-price">{product.price.toLocaleString('ar-EG')} ج.م</span>
           <button 
             className="btn add-to-cart-btn" 
-            onClick={() => handleAddToCart(product)}
+            onClick={(e) => handleAddToCart(e, product)}
             aria-label={`Add ${product.name} to cart`}
             disabled={isAdding}
           >

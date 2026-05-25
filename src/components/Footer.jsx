@@ -10,7 +10,7 @@ const FacebookIcon = () => (
 
 export default function Footer() {
   return (
-    <footer id="about" className="footer">
+    <footer id="about" className="footer reveal reveal-up">
       <div className="container footer-content">
         <div className="footer-brand">
           <h2 className="brand-text">مفروشات العبد</h2>
