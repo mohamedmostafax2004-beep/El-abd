@@ -93,6 +93,18 @@ h3 { font-size: 1.75rem; }
   border: 1px solid var(--glass-border);
 }
 
+/* Shared Overlay Utility */
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay);
+  z-index: 1001;
+  animation: fadeIn 0.3s ease;
+}
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
@@ -213,6 +225,13 @@ main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* Force elements to be instantly visible on mobile to avoid Intersection Observer layout bugs */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 

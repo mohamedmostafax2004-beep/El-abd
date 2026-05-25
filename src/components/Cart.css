@@ -1,13 +1,3 @@
-.cart-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--overlay);
-  z-index: 1001;
-  animation: fadeIn 0.3s ease;
-}
 
 .cart-sidebar {
   position: fixed;
@@ -241,3 +231,14 @@
 .mt-3 {
   margin-top: 1rem;
 }
+
+@media (max-width: 480px) {
+  .cart-sidebar {
+    max-width: 100%;
+    right: -100%;
+  }
+  .cart-sidebar.open {
+    right: 0;
+  }
+}
+

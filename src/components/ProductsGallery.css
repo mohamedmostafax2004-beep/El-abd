@@ -58,3 +58,41 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
 }
+
+@media (max-width: 576px) {
+  .products-section {
+    padding: 3rem 16px;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .categories-filter {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 4px 16px 1rem;
+    margin-left: -16px;
+    margin-right: -16px;
+    gap: 0.5rem;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .categories-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 0.45rem 1.15rem;
+    font-size: 0.9rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+

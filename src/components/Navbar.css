@@ -149,3 +149,14 @@
 .side-menu-links a:hover {
   color: var(--accent-color);
 }
+
+@media (max-width: 480px) {
+  .side-menu {
+    max-width: 100%;
+    right: -100%;
+  }
+  .side-menu.open {
+    right: 0;
+  }
+}
+

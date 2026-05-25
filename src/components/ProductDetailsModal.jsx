@@ -106,6 +106,8 @@ export default function ProductDetailsModal({ product, onClose, addToCart }) {
   return (
     <div className="modal-backdrop" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal-container">
+        {/* مقبض سحب الموبايل البصري لبيان إمكانية السحب والتفاعل */}
+        <div className="modal-drag-handle mobile-only"></div>
         
         {/* زر الإغلاق */}
         <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">

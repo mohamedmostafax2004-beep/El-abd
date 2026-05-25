@@ -149,3 +149,42 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 576px) {
+  .product-info {
+    padding: 0.75rem;
+  }
+
+  .product-name {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .product-description {
+    display: none !important; /* Hide description in grid on mobile for compact, height-aligned cards */
+  }
+
+  .product-bottom {
+    margin-top: 0.5rem;
+  }
+
+  .product-price {
+    font-size: 1.05rem;
+  }
+
+  .add-to-cart-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .product-category {
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+  }
+}
+
