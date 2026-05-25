@@ -1,0 +1,143 @@
+.product-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-shadow);
+}
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-category {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--glass-bg);
+  backdrop-filter: blur(4px);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+}
+
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent-color);
+}
+
+.add-to-cart-btn {
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart-btn:hover:not(:disabled) {
+  background-color: var(--bg-secondary);
+}
+
+.add-to-cart-btn:disabled {
+  opacity: 0.9;
+  cursor: not-allowed;
+}
+
+.icon-container {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bag-icon {
+  position: absolute;
+  opacity: 1;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.bag-icon.inactive {
+  color: var(--accent-color);
+}
+
+.bag-icon.active {
+  color: #fff;
+}
+
+.spinner {
+  position: absolute;
+  color: #fff;
+  opacity: 0.8;
+  animation: spin 1s linear infinite;
+  z-index: 2;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

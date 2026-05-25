@@ -1,0 +1,90 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.brand-text {
+  color: var(--accent-color);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-btn {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Side Menu Styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 100%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--bg-secondary);
+  z-index: 1002;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.1);
+}
+
+.side-menu.open {
+  right: 0;
+}
+
+.side-menu-links {
+  list-style: none;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.side-menu-links a {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.side-menu-links a:hover {
+  color: var(--accent-color);
+}
