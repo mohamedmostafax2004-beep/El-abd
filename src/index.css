@@ -227,11 +227,17 @@ main {
     justify-content: center;
   }
 
-  /* Force elements to be instantly visible on mobile to avoid Intersection Observer layout bugs */
+  /* Enable scroll reveal animations on mobile with an optimized, ultra-smooth and snappy transition */
   .reveal {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+
+  .reveal.active {
     opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+    transform: translateY(0) scale(1) !important;
   }
 }
 
