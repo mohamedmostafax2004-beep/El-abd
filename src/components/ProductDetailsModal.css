@@ -71,7 +71,7 @@
   height: 100%;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 676px) {
   .modal-content-grid {
     grid-template-columns: 1fr;
   }
