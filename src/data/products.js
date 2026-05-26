@@ -7,15 +7,21 @@ import img6 from '../assets/products/6010429740453841224_121.jpg';
 import img7 from '../assets/products/6010429740453841226_121.jpg';
 import img8 from '../assets/products/6010429740453841227_121.jpg';
 import img9 from '../assets/products/6010429740453841228_121.jpg';
-import img10 from '../assets/products/6012681540267525764_121.jpg';
-import img11 from '../assets/products/6012681540267525765_121.jpg';
-import img12 from '../assets/products/6012681540267525768_121.jpg';
-import img13 from '../assets/products/6012681540267525769_121.jpg';
-import img14 from '../assets/products/6016875455572986014_121.jpg';
-import img15 from '../assets/products/6016875455572986073_121.jpg';
-import img16 from '../assets/products/6016875455572986101_121.jpg';
-import img17 from '../assets/products/6016875455572986209_121.jpg';
-import img18 from '../assets/products/6023675393824901779_121.jpg';
+import towel01 from '../assets/products/towel-01.png';
+import towel02 from '../assets/products/towel-02.png';
+import towel03 from '../assets/products/towel-03.png';
+import towel04 from '../assets/products/towel-04.png';
+import towel05 from '../assets/products/towel-05.png';
+import towel06 from '../assets/products/towel-06.png';
+import towel07 from '../assets/products/towel-07.png';
+import towel08 from '../assets/products/towel-08.png';
+import towel09 from '../assets/products/towel-09.png';
+import towel10 from '../assets/products/towel-10.png';
+import towel11 from '../assets/products/towel-11.png';
+import towel12 from '../assets/products/towel-12.png';
+import towel13 from '../assets/products/towel-13.png';
+import towel14 from '../assets/products/towel-14.png';
+import towel15 from '../assets/products/towel-15.png';
 
 // استيراد صور طقم ملايات رافيتا مليكة الجديد
 import ravitaBlueGrey from '../assets/products/ravita_blue_grey.jpg';
@@ -52,13 +58,85 @@ export const products = [
   { id: 9, name: 'طقم سرير تركي مطبوع', price: 1350, category: 'أطقم سرير', image: img9, description: 'خامات تركية ممتازة بطباعة ثابتة لا تتأثر بالغسيل.' },
 
   // فوط (Towels)
-  { id: 10, name: 'طقم فوط قطن تركي', price: 650, category: 'فوط', image: img10, description: 'فوط عالية الامتصاص وناعمة جداً على البشرة.' },
-  { id: 11, name: 'طقم بشاكير حمام مطرزة', price: 900, category: 'فوط', image: img11, description: 'بشاكير فاخرة بتطريز أنيق مناسبة للعرايس.' },
-  { id: 12, name: 'بشكير حمام كبير ناعم', price: 450, category: 'فوط', image: img12, description: 'حجم كبير وتجفيف سريع بفضل القطن الخالص.' },
-  { id: 13, name: 'طقم فوط عرايس بالدانتيل', price: 1100, category: 'فوط', image: img13, description: 'طقم فوط مزين بالدانتيل الراقي لزهاز العروسة.' },
-  { id: 14, name: 'طقم برنس حمام كامل', price: 2100, category: 'فوط', image: img14, description: 'طقم أرواب استحمام رجالي وحريمي مع الفوط.' },
-  { id: 15, name: 'فوط استحمام جاكار', price: 750, category: 'فوط', image: img15, description: 'فوط بتصميم الجاكار المميز متينة وتدوم طويلاً.' },
-  { id: 16, name: 'طقم فوط أطفال', price: 350, category: 'فوط', image: img16, description: 'فوط ناعمة مخصصة لبشرة الأطفال الحساسة.' },
-  { id: 17, name: 'مجموعة فوط ضيوف', price: 250, category: 'فوط', image: img17, description: 'فوط صغيرة ومميزة للاستخدام في حمام الضيوف.' },
-  { id: 18, name: 'طقم فوط قطن مصري', price: 550, category: 'فوط', image: img18, description: 'جودة القطن المصري الأصيل في طقم فوط عملي.' },
+  {
+    id: 10,
+    name: 'طقم فوط قطن تركي',
+    price: 650,
+    category: 'فوط',
+    image: towel01,
+    images: [towel01, towel02],
+    description: 'فوط عالية الامتصاص وناعمة جداً على البشرة.',
+  },
+  {
+    id: 11,
+    name: 'طقم بشاكير حمام مطرزة',
+    price: 900,
+    category: 'فوط',
+    image: towel08,
+    images: [towel08, towel12, towel14],
+    description: 'بشاكير فاخرة بتطريز أنيق مناسبة للعرايس.',
+  },
+  {
+    id: 12,
+    name: 'بشكير حمام كبير ناعم',
+    price: 450,
+    category: 'فوط',
+    image: towel04,
+    images: [towel04, towel05],
+    description: 'حجم كبير وتجفيف سريع بفضل القطن الخالص.',
+  },
+  {
+    id: 13,
+    name: 'طقم فوط عرايس بالدانتيل',
+    price: 1100,
+    category: 'فوط',
+    image: towel03,
+    images: [towel03, towel06],
+    description: 'طقم فوط مزين بالدانتيل الراقي لزهاز العروسة.',
+  },
+  {
+    id: 14,
+    name: 'طقم برنس حمام كامل',
+    price: 2100,
+    category: 'فوط',
+    image: towel09,
+    images: [towel09, towel11],
+    description: 'طقم أرواب استحمام رجالي وحريمي مع الفوط.',
+  },
+  {
+    id: 15,
+    name: 'فوط استحمام جاكار',
+    price: 750,
+    category: 'فوط',
+    image: towel07,
+    images: [towel07],
+    description: 'فوط بتصميم الجاكار المميز متينة وتدوم طويلاً.',
+  },
+  {
+    id: 16,
+    name: 'طقم فوط أطفال',
+    price: 350,
+    category: 'فوط',
+    image: towel10,
+    images: [towel10],
+    description: 'فوط ناعمة مخصصة لبشرة الأطفال الحساسة.',
+  },
+  {
+    id: 17,
+    name: 'مجموعة فوط ضيوف',
+    price: 250,
+    category: 'فوط',
+    image: towel13,
+    images: [towel13],
+    description: 'فوط صغيرة ومميزة للاستخدام في حمام الضيوف.',
+  },
+  {
+    id: 18,
+    name: 'طقم فوط قطن مصري',
+    price: 550,
+    category: 'فوط',
+    image: towel15,
+    images: [towel15],
+    description: 'جودة القطن المصري الأصيل في طقم فوط عملي.',
+  },
 ];
