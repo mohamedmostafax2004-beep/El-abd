@@ -8,10 +8,9 @@ export default function ProductsGallery({ addToCart, onOpenDetails }) {
 
   const categories = ['الكل', ...new Set(products.map(p => p.category))];
 
-  const filteredProducts = (filter === 'الكل' 
+  const filteredProducts = filter === 'الكل' 
     ? products 
-    : products.filter(p => p.category === filter)
-  ).slice(0, 3);
+    : products.filter(p => p.category === filter);
 
   // تفعيل Intersection Observer لمراقبة سكرول العناصر والبطاقات في المعرض
   useEffect(() => {
