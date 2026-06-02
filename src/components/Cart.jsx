@@ -11,7 +11,7 @@ export default function Cart({ isOpen, onClose, cartItems, removeFromCart, updat
   const handleClose = () => {
     onClose();
     // Reset after closing animation finishes
-    setTimeout(() => {
+    setTimeout(() => {  
       setStep('cart');
       setFormData({ name: '', phone: '', address: '' });
     }, 300);
@@ -42,7 +42,7 @@ export default function Cart({ isOpen, onClose, cartItems, removeFromCart, updat
           ) : (
             <h2>{step === 'success' ? 'تم الطلب' : 'سلة المشتريات'}</h2>
           )}
-          
+
           {step === 'checkout' && <h2>إتمام الطلب</h2>}
 
           <button className="btn-icon" onClick={handleClose} aria-label="Close Cart">
@@ -70,8 +70,8 @@ export default function Cart({ isOpen, onClose, cartItems, removeFromCart, updat
                           <span>{item.quantity}</span>
                           <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
                         </div>
-                        <button 
-                          className="btn-icon text-danger" 
+                        <button
+                          className="btn-icon text-danger"
                           onClick={() => removeFromCart(item.id)}
                           aria-label="Remove item"
                         >
@@ -91,38 +91,38 @@ export default function Cart({ isOpen, onClose, cartItems, removeFromCart, updat
               <form onSubmit={handleSubmitOrder} className="checkout-form">
                 <div className="form-group">
                   <label htmlFor="name">الاسم بالكامل</label>
-                  <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    value={formData.name} 
-                    onChange={handleInputChange} 
-                    required 
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
                     placeholder="اكتب اسمك هنا"
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">رقم الهاتف</label>
-                  <input 
-                    type="tel" 
-                    id="phone" 
-                    name="phone" 
-                    value={formData.phone} 
-                    onChange={handleInputChange} 
-                    required 
-                    placeholder="01xxxxxxxxx"
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="+20xxxxxxxx"
                     dir="ltr"
                     style={{ textAlign: 'right' }}
                   />
                 </div>
                 <div className="form-group">
                   <label htmlFor="address">العنوان بالتفصيل</label>
-                  <textarea 
-                    id="address" 
-                    name="address" 
-                    value={formData.address} 
-                    onChange={handleInputChange} 
-                    required 
+                  <textarea
+                    id="address"
+                    name="address"
+                    value={formData.address}
+                    onChange={handleInputChange}
+                    required
                     placeholder="المحافظة، المنطقة، الشارع، رقم العمارة والشقة"
                     rows="3"
                   ></textarea>

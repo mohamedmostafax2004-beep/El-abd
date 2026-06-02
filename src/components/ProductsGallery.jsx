@@ -39,7 +39,7 @@ export default function ProductsGallery({ addToCart, onOpenDetails }) {
   }, [filteredProducts, filter]); // إعادة التنشيط فور تغيير التصنيف لظهور الكروت بنعومة
 
   return (
-    <section id="products" className="products-section container reveal">
+    <section id="products" className="products-section-container-reveal">
       <div className="section-header text-center reveal reveal-up">
         <h2 className="section-title">أحدث منتجاتنا</h2>
         <div className="title-underline"></div>
@@ -63,7 +63,7 @@ export default function ProductsGallery({ addToCart, onOpenDetails }) {
           <div 
             key={product.id} 
             className="reveal reveal-up"
-            style={{ transitionDelay: `${(idx % 3) * 100}ms` }} // تأثير حركة متموج رائع للكروت (Cascade Effect)
+            style={{ transitionDelay: `${(idx % 3) * 100}ms` }} 
           >
             <ProductCard 
               product={product} 

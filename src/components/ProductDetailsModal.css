@@ -101,6 +101,7 @@
     padding: 2rem 1.5rem 1rem;
     border-left: none;
     border-bottom: 1px solid var(--border-color);
+    max-width: 95%;
   }
 }
 
