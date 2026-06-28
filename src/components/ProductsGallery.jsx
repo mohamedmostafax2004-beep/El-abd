@@ -12,12 +12,12 @@ export default function ProductsGallery({ addToCart, onOpenDetails }) {
     ? products 
     : products.filter(p => p.category === filter);
 
-  // تفعيل Intersection Observer لمراقبة سكرول العناصر والبطاقات في المعرض
+  
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -20px 0px', // تقريب مسافة التشغيل لتناسب شاشات الموبايل القصيرة
-      threshold: 0.01, // تفعيل التأثير فور ملامسة 1% من العنصر للشاشة
+      rootMargin: '0px 0px -20px 0px',
+      threshold: 0.01,
     };
 
     const observer = new IntersectionObserver((entries) => {
